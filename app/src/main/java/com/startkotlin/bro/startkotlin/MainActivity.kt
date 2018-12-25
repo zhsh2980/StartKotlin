@@ -8,22 +8,125 @@ import org.jetbrains.anko.longToast
 import org.jetbrains.anko.toast
 
 class MainActivity : AppCompatActivity() {
-    //var 可变
-    var i: Int = 0
-    //不可变
-    val j: Int = 1
 
-
-    //数组
-    var int_array: IntArray = intArrayOf(1, 2, 3)
-    var int2_array: Array<Int> = arrayOf(4, 5, 6)
-    var float_array: Array<Float> = arrayOf(4f, 5f, 6f)
-    //stirng数组
-    var string_array: Array<String> = arrayOf("hello", "hi", "haha")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        onBtnClick()//点击事件
+        dataStruct()//数据结构
+        controlCodes()//控制语句
+
+    }
+
+    private fun onBtnClick() {
+        var str: String = "我是不一样的烟火"
+        btn_1.setOnClickListener {
+            tv_content.text = "点击了"
+            toast("你点我了${str}")
+        }
+        btn_1.setOnLongClickListener {
+            tv_content.text = "长按了"
+            longToast("你长按了${str}");true
+        }
+    }
+
+    /**
+     * 控制语句
+     */
+    private fun controlCodes() {
+
+        //--------------------------if  else-------------------------
+        var booValue = true
+        var strIf = "simple if else"
+        strIf = if (booValue) "赋值1" else "赋值2"
+
+        //--------------------------when/else------------------------
+        var count: Int = 0
+        var dynamicInt: Int = 10
+        val countEnd = when (count) {
+            0, 2, 4, 6 -> "赋值1"
+            1, 3, 5, 7 -> "赋值2"
+            dynamicInt -> "动态值"
+            in 13..19 -> "连续值"
+            !in 20..30 -> "连续值的区间外"
+            else -> "默认值"
+        }
+
+        //--------------------------is------------------------
+        //java 里的 instanceof 变成 is
+        var countType: Number
+        var countOrin = 0
+        countType = when (countOrin) {
+            0 -> count.toLong()
+            1 -> count.toShort()
+            else -> count.toInt()
+        }
+        when (countType) {
+            is Long -> "long 类型"
+            is Short -> "short 类型"
+            else -> "其他类型"
+        }
+
+        //跳出多重循环  @关键字
+        var i: Int = 0
+        val goodMutList: List<String> = listOf("iPhone 8", "Mate 10", "Mi 8")
+        outside@ while (i < goodMutList.size) {
+            var j: Int = 10
+            var item = goodMutList[i]
+            while (j < item.length) {
+                if (item[j] == '3') {
+                    break@outside
+                }
+                j++
+            }
+            i++
+        }
+
+        //不可为空 可调用 6 种判空方法
+        var strNotNull:String = ""
+
+        //可为空  只能调用下面两种
+        var strCanNull:String? = ""
+        strCanNull.isNullOrBlank()
+        strCanNull.isNullOrEmpty()
+
+
+
+        //对于可为空的,获取length 时仍需判空
+        var length = 0
+        length = if (strCanNull != null) strCanNull.length else -1
+
+        strCanNull?.length//(如果变量为空,结果也为空)
+        val i1 = strCanNull?.length
+        //?: 如果左面为空,返回右侧表达式
+        val i2 = strCanNull?.length ?: -1
+
+        //可为空的变量如果用 .length 编辑器会报错,如果确保此变量不为空,可在前面加!!强制变为不为空(如果此时为空,会报异常风险)
+        val length1 = strCanNull!!.length
+
+
+    }
+
+    fun dataStruct() {
+
+        //var 可变
+        var i: Int = 0
+        //不可变
+        val j: Int = 1
+
+        //数组
+        var int_array: IntArray = intArrayOf(1, 2, 3)
+        var int2_array: Array<Int> = arrayOf(4, 5, 6)
+        var float_array: Array<Float> = arrayOf(4f, 5f, 6f)
+        //stirng数组
+        var string_array: Array<String> = arrayOf("hello", "hi", "haha")
+
+
+        val size = int_array.size;
+        val get = int_array.get(2);
+
         //转成 string
         val toString = i.toString()
         //string 转成其他类型
@@ -94,41 +197,27 @@ class MainActivity : AppCompatActivity() {
         // 不可变 Map  可变 MutableMap
 
         // 初始化  两种
-        var goodMap:Map<String , String> = mapOf("苹果" to "iPhone","小米" to "Mi")
-        var goodMutMap:MutableMap<String , String> = mutableMapOf(Pair("苹果","iPhone"),Pair("小米","M"))
+        var goodMap: Map<String, String> = mapOf("苹果" to "iPhone", "小米" to "Mi")
+        var goodMutMap: MutableMap<String, String> = mutableMapOf(Pair("苹果", "iPhone"), Pair("小米", "M"))
 
         // 3 种遍历
         // 1. for
-        var descMutMap =""
-        for (item in goodMutMap){
+        var descMutMap = ""
+        for (item in goodMutMap) {
             descMutMap = "${descMutMap}厂家:${item.key},名称:${item.value}\n"
         }
 
         //2. 迭代器
         val iteratorMutMap = goodMutMap.iterator()
-        if (iteratorMutMap.hasNext()){
+        if (iteratorMutMap.hasNext()) {
             val next = iteratorMutMap.next()
             descMutMap = "${descMutMap}厂家:${next.key},名称:${next.value}\n"
         }
 
         //3. forEach (api > 24)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            goodMutMap.forEach { key, value -> descMutMap =  "${descMutMap}厂家:${key},名称:${value}\n"}
+            goodMutMap.forEach { key, value -> descMutMap = "${descMutMap}厂家:${key},名称:${value}\n" }
         }
-
-        btn_1.setOnClickListener {
-            tv_content.text = "点击了"
-            toast("你点我了" + i)
-        }
-        btn_1.setOnLongClickListener {
-            tv_content.text = "长按了"
-            longToast("你长按了" + i);true
-        }
-
-
-        val size = int_array.size;
-        val get = int_array.get(2);
-
 
     }
 }
