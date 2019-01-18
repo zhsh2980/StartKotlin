@@ -20,6 +20,9 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    /**
+     * 点击事件
+     */
     private fun onBtnClick() {
         var str: String = "我是不一样的烟火"
         btn_1.setOnClickListener {
@@ -67,7 +70,19 @@ class MainActivity : AppCompatActivity() {
             is Long -> "long 类型"
             is Short -> "short 类型"
             else -> "其他类型"
+
         }
+        val oneLong:Long = 1L
+        val result = oneLong is Long
+        val reverseResult = oneLong !is Long
+
+        //--------------------------in------------------------
+        //数组中是否包含某元素
+        val oneArray:IntArray = intArrayOf(1,2,3,4,5)
+        val four:Int = 4
+        val five:Int = 4
+        val result_2 = four in oneArray
+        val result_3 = five !in oneArray
 
         //跳出多重循环  @关键字
         var i: Int = 0
@@ -85,13 +100,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         //不可为空 可调用 6 种判空方法
-        var strNotNull:String = ""
+        var strNotNull: String = ""
 
         //可为空  只能调用下面两种
-        var strCanNull:String? = ""
+        var strCanNull: String? = ""
         strCanNull.isNullOrBlank()
         strCanNull.isNullOrEmpty()
-
 
 
         //对于可为空的,获取length 时仍需判空
@@ -106,9 +120,22 @@ class MainActivity : AppCompatActivity() {
         //可为空的变量如果用 .length 编辑器会报错,如果确保此变量不为空,可在前面加!!强制变为不为空(如果此时为空,会报异常风险)
         val length1 = strCanNull!!.length
 
+        //3.4 等式判断
+        //1. String 值比较
+        var str1: String = "哈哈"
+        var str2: String = "哈哈"
+        val b: Boolean = str1 == str2
+        toast("比较结果是:$b")
+
+        // === 比较引用
+
+
 
     }
 
+    /**
+     * 数据结构
+     */
     fun dataStruct() {
 
         //var 可变
@@ -122,7 +149,6 @@ class MainActivity : AppCompatActivity() {
         var float_array: Array<Float> = arrayOf(4f, 5f, 6f)
         //stirng数组
         var string_array: Array<String> = arrayOf("hello", "hi", "haha")
-
 
         val size = int_array.size;
         val get = int_array.get(2);
