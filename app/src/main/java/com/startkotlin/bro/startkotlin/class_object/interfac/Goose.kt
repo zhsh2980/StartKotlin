@@ -1,6 +1,6 @@
 package com.startkotlin.bro.startkotlin.class_object.interfac
 
-import com.startkotlin.bro.startkotlin.class_object.Constant
+import com.startkotlin.bro.startkotlin.utils.Constant
 import com.startkotlin.bro.startkotlin.class_object.WildAnimal
 
 /**

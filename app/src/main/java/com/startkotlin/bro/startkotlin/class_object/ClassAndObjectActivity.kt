@@ -2,12 +2,12 @@ package com.startkotlin.bro.startkotlin.class_object
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.blankj.utilcode.util.LogUtils
 import com.startkotlin.bro.startkotlin.R
 import com.startkotlin.bro.startkotlin.class_object.interfac.BehaviorFly
 import com.startkotlin.bro.startkotlin.class_object.interfacProxy.WildFowl
-import org.jetbrains.anko.toast
+import com.startkotlin.bro.startkotlin.class_object.special.InnerClass
+import com.startkotlin.bro.startkotlin.utils.Constant
 
 /**
  * 第五章
@@ -34,7 +34,13 @@ class ClassAndObjectActivity : AppCompatActivity() {
 //        toast(fly)
 
         //代理接口
-        val wildFowl = WildFowl("老鹰", Constant.MALE, BehaviorFly())
-        LogUtils.i(wildFowl.name + wildFowl.fly())
+//        val wildFowl = WildFowl("老鹰", Constant.MALE, BehaviorFly())
+//        LogUtils.i(wildFowl.name + wildFowl.fly())
+
+        //内部类
+        val name = InnerClass.Flower("桃花").getName()
+        LogUtils.i(name)
+
+        LogUtils.i(InnerClass("桃树").Fruit("桃子").getName())
     }
 }
