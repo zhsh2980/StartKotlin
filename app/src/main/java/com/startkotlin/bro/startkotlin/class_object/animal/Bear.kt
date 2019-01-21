@@ -1,6 +1,6 @@
 package com.startkotlin.bro.startkotlin.class_object.animal
 
-import com.startkotlin.bro.startkotlin.class_object.animal.WildAnimal
+import com.startkotlin.bro.startkotlin.class_object.WildAnimal
 
 /**
  * Created by zhangshan on 2019/1/21 17:42.

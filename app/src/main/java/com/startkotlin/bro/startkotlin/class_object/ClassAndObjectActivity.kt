@@ -2,11 +2,11 @@ package com.startkotlin.bro.startkotlin.class_object
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import com.blankj.utilcode.util.LogUtils
 import com.startkotlin.bro.startkotlin.R
-import com.startkotlin.bro.startkotlin.class_object.animal.Bear
-import com.startkotlin.bro.startkotlin.class_object.animal.WildAnimal
-import com.startkotlin.bro.startkotlin.class_object.chicken.Cock
-import com.startkotlin.bro.startkotlin.class_object.interfac.Goose
+import com.startkotlin.bro.startkotlin.class_object.interfac.BehaviorFly
+import com.startkotlin.bro.startkotlin.class_object.interfacProxy.WildFowl
 import org.jetbrains.anko.toast
 
 /**
@@ -30,7 +30,11 @@ class ClassAndObjectActivity : AppCompatActivity() {
 //        val callOut = Cock().callOut()
 //        toast(callOut)
 
-        val fly = Goose().fly()
-        toast(fly)
+//        val fly = BehaviorFly().fly()
+//        toast(fly)
+
+        //代理接口
+        val wildFowl = WildFowl("老鹰", Constant.MALE, BehaviorFly())
+        LogUtils.i(wildFowl.name + wildFowl.fly())
     }
 }

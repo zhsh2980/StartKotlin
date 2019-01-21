@@ -1,7 +1,5 @@
 package com.startkotlin.bro.startkotlin.class_object.chicken
 
-import com.startkotlin.bro.startkotlin.class_object.animal.WildAnimal
-
 /**
  * Created by zhangshan on 2019/1/21 18:11.
  */
