@@ -1,4 +1,4 @@
-package com.startkotlin.bro.startkotlin.class_object
+package com.startkotlin.bro.startkotlin.class_object.animal
 
 import android.content.Context
 import org.jetbrains.anko.toast
