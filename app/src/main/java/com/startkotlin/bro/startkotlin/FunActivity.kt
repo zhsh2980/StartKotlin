@@ -2,6 +2,8 @@ package com.startkotlin.bro.startkotlin
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
+import com.startkotlin.bro.startkotlin.utils.DateUtils
 import kotlinx.android.synthetic.main.activity_second.*
 
 /**
@@ -109,6 +111,10 @@ class FunActivity : AppCompatActivity() {
             array.swap_T(0, 2)
             //扩展高阶函数
             array.maxCustom_T(array, { a, b -> a > b })
+
+            //单例
+            val nowDate = DateUtils.nowDate
+            Log.i("单例时间:", nowDate)
         }
     }
 
