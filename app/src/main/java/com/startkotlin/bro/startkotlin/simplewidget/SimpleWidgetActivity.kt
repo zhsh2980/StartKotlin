@@ -27,7 +27,7 @@ class SimpleWidgetActivity : AppCompatActivity() {
             startActivity<CheckboxActivity>()
         }
         btn_widget_3.setOnClickListener {
-            startActivity<ClassAndObjectActivity>()
+            startActivity<DialogActivity>()
         }
         btn_widget_4.setOnClickListener {
             startActivity<ButtonActivity>()

@@ -2,8 +2,12 @@ package com.startkotlin.bro.startkotlin.simplewidget
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.LinearLayout
+import com.blankj.utilcode.util.LogUtils
 import com.startkotlin.bro.startkotlin.R
 import kotlinx.android.synthetic.main.activity_checkbox.*
+import org.jetbrains.anko.px2dip
+import org.jetbrains.anko.sp
 
 class CheckboxActivity : AppCompatActivity() {
 
